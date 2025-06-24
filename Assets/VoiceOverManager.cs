@@ -34,6 +34,7 @@ public class VoiceOverManager : MonoBehaviour
 
 
         // code should check to see if already playing something and cancel it if so. 
+        // toggle sound option in ui
 
     }
 }
