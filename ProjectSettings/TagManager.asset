@@ -7,6 +7,14 @@ TagManager:
   - Mars
   - Earth
   - Info
+  - TrackingObject
+  - Actors
+  - Mercury
+  - Venus
+  - Juptier
+  - Saturn
+  - Uranus
+  - Neptune
   layers:
   - Default
   - TransparentFX

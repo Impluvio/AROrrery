@@ -296,7 +296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1962286599148853266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 3551344861601919406}
   - component: {fileID: 8837589593959387630}
   - component: {fileID: 2474002543592690744}
+  - component: {fileID: 7863851812423523009}
   m_Layer: 0
   m_Name: Mars
   m_TagString: Mars
@@ -474,3 +475,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7863851812423523009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280104998063407793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f3633c4f244b04c8c1ce075c864be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToFollow: {fileID: 0}
