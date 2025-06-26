@@ -11,10 +11,11 @@ TagManager:
   - Actors
   - Mercury
   - Venus
-  - Juptier
   - Saturn
   - Uranus
   - Neptune
+  - Jupiter
+  - Juptier
   layers:
   - Default
   - TransparentFX
