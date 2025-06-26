@@ -10,10 +10,13 @@ public class ImageSorter : MonoBehaviour
     private ARTrackedImageManager trackedImages;
     public GameObject[] ARPrefabs;
     Dictionary<string, GameObject> activePlanets = new Dictionary<string, GameObject>();
+    List<GameObject> enabledInfoScreens = new List<GameObject>();
+    VoiceOverManager voiceOverManager;
 
     private void Awake()
     {
         trackedImages = GetComponent<ARTrackedImageManager>();
+        voiceOverManager = FindObjectOfType<VoiceOverManager>();
 
     }
 
@@ -59,8 +62,8 @@ public class ImageSorter : MonoBehaviour
 
     public void EnableInformation(string planetName)
     {
-        Debug.Log("image sorter hit");
-        Debug.Log("Planet name: " + planetName);
+        //Debug.Log("image sorter hit");
+        //Debug.Log("Planet name: " + planetName);
 
 
         if (!activePlanets.TryGetValue(planetName, out GameObject planetInstance))
@@ -71,6 +74,8 @@ public class ImageSorter : MonoBehaviour
 
         Transform infoScreenTransform = planetInstance.transform.Find("InfoScreen");
 
+
+
         if (infoScreenTransform == null)
         {
             Debug.LogWarning("InfoScreen not found on: " + planetInstance.name);
@@ -78,8 +83,20 @@ public class ImageSorter : MonoBehaviour
         }
 
         GameObject infoScreen = infoScreenTransform.gameObject;
+
+        enabledInfoScreens.Add(infoScreen);
+        Debug.Log("no. of enabled info screens" + enabledInfoScreens.Count);
+
         infoScreen.SetActive(!infoScreen.activeSelf);
 
+        if (infoScreen.activeSelf == true)
+        {
+            voiceOverManager.playAudio(planetName);
+        }
+        else if (infoScreen.activeSelf == false)
+        {
+            voiceOverManager.stopAudio(planetName);
+        }
     }
 
 

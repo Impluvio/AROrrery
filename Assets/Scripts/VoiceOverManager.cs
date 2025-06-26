@@ -16,7 +16,7 @@ public class VoiceOverManager : MonoBehaviour
 
     public void playAudio(string planetAudioName)
     {
-        Debug.Log("audio name pass: " + planetAudioName);
+        //Debug.Log("audio name pass: " + planetAudioName);
         foreach (AudioClip clip in soundClips) // null check here. 
         {
             if (clip.name == planetAudioName)
@@ -30,11 +30,31 @@ public class VoiceOverManager : MonoBehaviour
             }
         }
 
-        audio.PlayOneShot(clipToPlay, 1);
+
+        if (audio.isPlaying)
+        {
+            audio.Stop();
+            audio.PlayOneShot(clipToPlay, 1);
+        }
+        else if (!audio.isPlaying)
+        {
+            audio.PlayOneShot(clipToPlay, 1);
+        }
+
+
 
 
         // code should check to see if already playing something and cancel it if so. 
         // toggle sound option in ui
 
     }
+
+    public void stopAudio(string planetAudioName)
+    {
+        if(clipToPlay.name == planetAudioName)
+        {
+            audio.Stop();
+        }
+    }
+
 }

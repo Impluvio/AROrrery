@@ -6,13 +6,13 @@ public class InfoPopup : MonoBehaviour
 {
     GameObject planetPrefab;
     ImageSorter imageSorter;
-    VoiceOverManager voiceOverManager;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         imageSorter = FindObjectOfType<ImageSorter>();
-        voiceOverManager = FindObjectOfType<VoiceOverManager>();
+        
 
     }
 
@@ -21,7 +21,7 @@ public class InfoPopup : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("main button pressed");
+            //Debug.Log("main button pressed");
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -31,10 +31,10 @@ public class InfoPopup : MonoBehaviour
             {
                if(hit.transform.tag != null)
                 {
-                    Debug.Log("raycast object hit name: " + hit.transform.tag);
+                    //Debug.Log("raycast object hit name: " + hit.transform.tag);
                     string nameOfHit = hit.transform.tag;
                     imageSorter.EnableInformation(nameOfHit);
-                    voiceOverManager.playAudio(nameOfHit);
+                    
                 }
 
             }
